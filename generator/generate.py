@@ -6,15 +6,29 @@ import sys
 NUM_ROWS = 50
 
 
-COLUMNS = ["COLUMN_1", "COLUMN_2", "COLUMN_3", "COLUMN_4"]
+COLUMNS = ["manicure_type", "price", "time", "master_level"]
 
 def generate_row():
+    service = random.randint(["coated", "extensions", "desing", "care"])
 
+    if service == "coated":
+        price = random.randint(2000, 3000)
+        time = random.randint(90, 120)
+    elif service == "extensions":
+        price = random.randint(3000, 5000)
+        time = random.randint(120, 180)
+    elif service == "desing":
+        price = random.randint(2500, 5000)
+        time = random.randint(90, 180)
+    else:
+        price = random.randint(800, 1500)
+        time = random.randint(30, 60)
+    
     return {
-        "COLUMN_1": random.randint(0, 100),
-        "COLUMN_2": round(random.uniform(1.5, 9.9), 2),
-        "COLUMN_3": random.randint(0, 100),
-        "COLUMN_4": random.choice(["A", "B", "C"]),
+        "manicure_type": service,
+        "price": price,
+        "time": time,
+        "master_level": random.choice(["intern", "master", "top-master"]),
     }
 
 OUTPUT_DIR = sys.argv[1] if len(sys.argv) > 1 else "/data"
