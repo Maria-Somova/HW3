@@ -9,7 +9,7 @@ NUM_ROWS = 50
 COLUMNS = ["manicure_type", "price", "time", "master_level"]
 
 def generate_row():
-    service = random.randint(["coated", "extensions", "desing", "care"])
+    service = random.choice(["coated", "extensions", "desing", "care"])
 
     if service == "coated":
         price = random.randint(2000, 3000)
